@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 
 import Messages from "./Messages";
 import Loader from "./Loader";
-import { getSoloUser, editUser } from "../actions/userActions";
+import { editUser, getSoloUserValue } from "../actions/userActions";
 import { USER_EDIT_RESET } from "../constants/userConstants";
 
 export default function EditProfile() {
@@ -30,7 +30,7 @@ export default function EditProfile() {
   useEffect(() => {
     if (userInfo.id !== user.id) {
       dispatch({ type: USER_EDIT_RESET });
-      dispatch(getSoloUser("userProfile"));
+      dispatch(getSoloUserValue("userProfile"));
     } else {
       setUserName(user.user_name);
       setEmail(user.email);
@@ -113,7 +113,7 @@ export default function EditProfile() {
                             type="text"
                             id="user_name"
                             className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                            placeholder="Full Name"
+                            placeholder="Nombre Completo"
                           />
                         </div>
                         <br></br>
@@ -126,7 +126,7 @@ export default function EditProfile() {
                             name="email"
                             id="email"
                             className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                            placeholder="E-mail"
+                            placeholder="Correo electronico"
                           />
                         </div>
 
@@ -139,7 +139,7 @@ export default function EditProfile() {
                         htmlFor="about"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        About
+                        Biografia
                       </label>
                       <div className="mt-1">
                         <textarea
@@ -160,7 +160,7 @@ export default function EditProfile() {
                       htmlFor="about"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Update Your Password
+                      Actualiza tu contraseña
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
                       <input
@@ -169,7 +169,7 @@ export default function EditProfile() {
                         type="password"
                         id="password"
                         className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        placeholder="Password"
+                        placeholder="Contraseña"
                       />
                     </div>
 
@@ -180,7 +180,7 @@ export default function EditProfile() {
                         type="password"
                         id="confirmPassword"
                         className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        placeholder="Confirm Password"
+                        placeholder="Confirma tu contraseña"
                       />
                     </div>
 
@@ -189,7 +189,7 @@ export default function EditProfile() {
                         htmlFor="about"
                         className="block text-sm font-medium text-gray-700"
                       >
-                        Image
+                        Imagen de perfil
                       </label>
 
                       <input
@@ -211,7 +211,7 @@ export default function EditProfile() {
                       type="submit"
                       className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
-                      Save
+                      Guardar
                     </button>
                   </div>
                 </div>

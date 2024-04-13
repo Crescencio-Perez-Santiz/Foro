@@ -63,6 +63,41 @@ export const editUser = (user) => async (dispatch, getState) => {
   }
 };
 
+export const getSoloUserValue = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_SOLO_REQUEST });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(
+      `http://127.0.0.1:8000/users/${id}/`,
+      config
+    );
+
+    dispatch({
+      type: USER_SOLO_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_SOLO_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};
+
 export const getSoloUser = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_SOLO_REQUEST });

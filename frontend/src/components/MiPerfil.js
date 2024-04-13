@@ -54,7 +54,7 @@ export default function MiPerfil() {
             </h3>
           </center>
           <p className="mt-1 max-w-2xl text-sm text-gray-500">
-            Detalles de tu perfil
+            Detalles de mi perfil
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function MiPerfil() {
               </dd>
             </div>
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt className="text-sm font-medium text-gray-500">Acerca de</dt>
+              <dt className="text-sm font-medium text-gray-500">Biografia</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                 {userInfo.bio}
               </dd>

@@ -42,30 +42,30 @@ export default function UserProfile() {
                 </h3>
               </center>
               <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                Personal details
+                Detalles de perfil
               </p>
             </div>
 
             <div className="border-t border-gray-200">
               <dl>
                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">
-                    Username
-                  </dt>
+                  <dt className="text-sm font-medium text-gray-500">Usuario</dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                     {user.user_name}
                   </dd>
                 </div>
                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-500">
-                    Email address
+                    Correo electronico
                   </dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                     {user.email}
                   </dd>
                 </div>
                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">About</dt>
+                  <dt className="text-sm font-medium text-gray-500">
+                    Biografia
+                  </dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                     {user.bio}
                   </dd>
@@ -74,7 +74,7 @@ export default function UserProfile() {
             </div>
           </div>
           <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            -- POSTS --
+            -- Publicaciones --
           </h2>
 
           {blogs.map((blog) => (
@@ -112,7 +112,7 @@ export default function UserProfile() {
                                 href={`/soloBlog/${blog.id}`}
                                 className="group relative flex  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                               >
-                                See More
+                                Ver Mas
                               </a>
                             </div>
                           </div>

@@ -69,7 +69,7 @@ export default function SoloBlog() {
                                         href={`/userProfile/${user.id}`}
                                         className="text-blue-600 text-sm hover:text-blue-800"
                                       >
-                                        See Profile
+                                        Ver Perfil
                                       </a>
                                     </div>
                                   </>
@@ -97,7 +97,7 @@ export default function SoloBlog() {
             </div>
 
             <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              COMMENTS
+              COMENTARIOS
             </h2>
 
             <form onSubmit={submitHandler}>
@@ -110,7 +110,7 @@ export default function SoloBlog() {
                     id="text"
                     rows={3}
                     className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    placeholder="Type Here!"
+                    placeholder="Escribe aqui!"
                   />
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function SoloBlog() {
                   type="submit"
                   className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
-                  Comment
+                  Comentar
                 </button>
               </div>
             </form>
