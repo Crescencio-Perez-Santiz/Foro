@@ -1,0 +1,4 @@
+/media
+__pycache__/
+__init__.py
+backend/.env
