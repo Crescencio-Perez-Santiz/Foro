@@ -183,5 +183,22 @@ def getUsers(request):
     # Devolvemos la variable serializer con los datos de los usuarios
     return Response(serializer.data)
 
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def subscribe(request):
+    user = request.user
+    card_details = request.data # data from the frontend
+    
+    user.is_subscriber = True
+    user.save()
+    
+    return Response(UserSerializer(user).data)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getUserProfileUpdate(request):
+    user = request.user
+    serializer = UserSerializerWithToken(user, many=False)
+    return Response(serializer.data)
 
 # --------------------------------------VIEWS--------------------------------------

@@ -103,6 +103,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Definimos el campo de is_active que nos permite acceder al panel de administración
     # default nos permite definir el valor por defecto del campo
     is_active = models.BooleanField(default=True)
+    
+    #Definimos el campo de is_subscriber que nos permite definir si el usuario es un subscriptor
+    #default nos permite definir el valor por defecto del campo
+    is_subscriber = models.BooleanField(default=False)
 
     # Definimos el campo de objects que nos permite usar el modelo personalizado
     objects = CustomAccountManager()

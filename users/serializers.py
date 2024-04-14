@@ -31,6 +31,8 @@ class UserSerializer(serializers.ModelSerializer):
             "first_name",
             # Indicamos el campo "image" del modelo
             "image",
+            #Indicamos el campo suscripción del modelo
+            "is_subscriber"
         ]
 
     # Definimos la función que nos indica si el usuario es administrador
@@ -69,6 +71,8 @@ class UserSerializerWithToken(UserSerializer):
             "bio",
             # Indicamos el campo "image" del modelo
             "image",
+            #Indicamos el campo suscripción del modelo
+            "is_subscriber"
         ]
 
     # Definimos la función que nos indica el token de usuario

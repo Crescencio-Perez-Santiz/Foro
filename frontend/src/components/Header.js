@@ -5,16 +5,43 @@ import { AiFillHome, AiFillPlusSquare } from "react-icons/ai";
 import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import u from "../media/cpu.png";
+import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import ModalSubscriber from "./ModalSubscriber";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Header() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  console.log("userInfo en login de header", userInfo);
   const dispatch = useDispatch();
   const logoutHandler = () => dispatch(logout());
+
+  // En tu componente Header
+  // Quitamos este useEffect
+  // useEffect(() => {
+  //   if (userInfo && !userInfo.is_subscriber) {
+  //     setIsModalOpen(true);
+  //   } else {
+  //     setIsModalOpen(false);
+  //   }
+  // }, [userInfo]);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    if (userInfo && userInfo.is_subscriber) {
+      navigate("/addBlog");
+      console.log("debi de redireccionar pero no hice nada");
+    } else if (userInfo && !userInfo.is_subscriber) {
+      setIsModalOpen(true);
+      console.log("abre modal pero no hice nada no deberia de entrar aqui");
+    }
+  };
 
   return (
     <Popover className="relative bg-white">
@@ -44,6 +71,7 @@ export default function Header() {
                 </a>
                 <a
                   href="/addBlog"
+                  onClick={handleClick}
                   className="text-base font-medium text-gray-500 hover:text-gray-900"
                 >
                   <AiFillPlusSquare size={30} />
@@ -246,6 +274,11 @@ export default function Header() {
           </div>
         </Popover.Panel>
       </Transition>
+      <div>
+        {userInfo && !userInfo.is_subscriber && isModalOpen && (
+          <ModalSubscriber onClose={() => setIsModalOpen(false)} />
+        )}
+      </div>
     </Popover>
   );
 }

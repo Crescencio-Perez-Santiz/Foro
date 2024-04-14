@@ -21,5 +21,10 @@ urlpatterns = [
     path("soloUser/<int:pk>/", views.getSoloUser),
     # Creamos la ruta para obtener todos los usuarios
     path("getUsers/", views.getUsers),
+    # Creamos la ruta para susbscribirse 
+    path("subscriber/", views.subscribe),
+    
+    path('profile/', views.getUserProfileUpdate)
+    
 ]
 # ------------------------------URLS-----------------------------#

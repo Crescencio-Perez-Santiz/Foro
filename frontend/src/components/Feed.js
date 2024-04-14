@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Messages from "./Messages";
 import Loader from "./Loader";
-import { getListUsers } from "../actions/userActions";
+import { getListUsers, getUserProfile } from "../actions/userActions";
 import { listBlogs } from "../actions/blogActions";
 
 export default function Feed() {
@@ -14,10 +14,17 @@ export default function Feed() {
   const userList = useSelector((state) => state.userList);
   const { users } = userList;
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  console.log("blogs estoy en el inicio es porque es el feed principal");
   useEffect(() => {
     dispatch(listBlogs());
     dispatch(getListUsers());
-  }, [dispatch]);
+    if (userInfo) {
+      dispatch(getUserProfile());
+    }
+  }, [dispatch, userInfo]);
 
   return (
     <>
@@ -29,7 +36,7 @@ export default function Feed() {
         <div className="py-10 bg-gray-200">
           {blogs &&
             blogs.map((blog) => (
-              <div className="py-8">
+              <div key={blog.id} className="py-8">
                 <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
                   <div className="md:flex">
                     <div className="w-full">

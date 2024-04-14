@@ -87,7 +87,7 @@ export default function MiPerfil() {
         -- Publicaciones --
       </h2>
       {blogs.map((blog) => (
-        <>
+        <React.Fragment key={blog.id}>
           {userInfo.user_name === blog.user && (
             <div className="py-20 bg-gray-200">
               <div className=" px-10">
@@ -138,7 +138,7 @@ export default function MiPerfil() {
               </div>
             </div>
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );

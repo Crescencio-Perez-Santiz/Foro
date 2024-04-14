@@ -126,10 +126,10 @@ export default function SoloBlog() {
 
             {blog.comments &&
               blog.comments.map((comment) => (
-                <>
+                <div key={comment.id}>
                   {users &&
-                    users.map((u) => (
-                      <div key={comment.id} className="flex justify-center">
+                    users.map((u, index) => (
+                      <div key={index} className="flex justify-center">
                         {u.user_name === comment.user && (
                           <div className="py-6">
                             <div>
@@ -154,7 +154,7 @@ export default function SoloBlog() {
                         )}
                       </div>
                     ))}
-                </>
+                </div>
               ))}
           </div>
         </div>
