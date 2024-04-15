@@ -58,8 +58,8 @@ export default function Feed() {
       ) : (
         <div className="py-10 bg-gray-200">
           {blogs &&
-            blogs.map((blog) => (
-              <div key={blog.id} className="py-8">
+            blogs.map((blog, index) => (
+              <div key={index} className="py-8">
                 <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
                   <div className="md:flex">
                     <div className="w-full">
@@ -83,7 +83,7 @@ export default function Feed() {
                                       style={{ textDecoration: "none" }}
                                       href={`/userProfile/${user.id}`}
                                       onClick={(event) =>
-                                        handleClickProfile(event, blog.id)
+                                        handleClickProfile(event, user.id)
                                       }
                                       className="text-blue-600 text-sm hover:text-blue-800"
                                     >

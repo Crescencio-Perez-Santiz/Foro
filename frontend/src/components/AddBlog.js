@@ -31,7 +31,7 @@ export default function AddBlog() {
             <div className="md:col-span-1"></div>
             <div className="mt-5 md:col-span-2 md:mt-0">
               <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-                Crear Publiacion
+                Crear Publicacion
               </h2>
               <form onSubmit={handleSubmit}>
                 <div className="shadow sm:overflow-hidden sm:rounded-md">

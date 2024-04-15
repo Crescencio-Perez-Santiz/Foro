@@ -116,10 +116,11 @@ export default function ModalSubscriber({ onClose, blogBody }) {
                   <li>Publica tus opiniones</li>
                   <li>Comenta las publicaciones de los demas</li>
                   <li>Sin limitaciones de informacion</li>
+                  <li>Visualizacion de hilos</li>
                 </ul>
                 <img src={petimg} alt="PetForo" className="h-[150px]" />
               </div>
-              <p className="text-2xl font-bold">250 MXN / mes</p>
+              <p className="text-2xl font-bold">$250 MXN / mes</p>
             </div>
             <button
               onClick={onClose}
