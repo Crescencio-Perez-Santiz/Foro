@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Messages from "./Messages";
 import Loader from "./Loader";
 import { getListUsers, getUserProfile } from "../actions/userActions";
 import { listBlogs } from "../actions/blogActions";
+import ModalSubscriber from "./ModalSubscriber";
+import { useNavigate } from "react-router-dom";
 
 export default function Feed() {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const blogList = useSelector((state) => state.blogList);
   const { error, loading, blogs } = blogList;
@@ -25,6 +30,24 @@ export default function Feed() {
       dispatch(getUserProfile());
     }
   }, [dispatch, userInfo]);
+
+  const handleClick = (event, blogId) => {
+    event.preventDefault();
+    if (userInfo && !userInfo.is_subscriber) {
+      setIsModalOpen(true);
+    } else {
+      navigate(`/soloBlog/${blogId}`);
+    }
+  };
+
+  const handleClickProfile = (event, userId) => {
+    event.preventDefault();
+    if (userInfo && !userInfo.is_subscriber) {
+      setIsModalOpen(true);
+    } else {
+      navigate(`/userProfile/${userId}`);
+    }
+  };
 
   return (
     <>
@@ -59,6 +82,9 @@ export default function Feed() {
                                     <a
                                       style={{ textDecoration: "none" }}
                                       href={`/userProfile/${user.id}`}
+                                      onClick={(event) =>
+                                        handleClickProfile(event, blog.id)
+                                      }
                                       className="text-blue-600 text-sm hover:text-blue-800"
                                     >
                                       Ver perfil
@@ -79,6 +105,7 @@ export default function Feed() {
                           <a
                             style={{ textDecoration: "none" }}
                             href={`/soloBlog/${blog.id}`}
+                            onClick={(event) => handleClick(event, blog.id)}
                             className="group relative flex  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                           >
                             Ver Mas
@@ -93,6 +120,9 @@ export default function Feed() {
                 </div>
               </div>
             ))}
+          {userInfo && !userInfo.is_subscriber && isModalOpen && (
+            <ModalSubscriber onClose={() => setIsModalOpen(false)} />
+          )}
         </div>
       )}
     </>
