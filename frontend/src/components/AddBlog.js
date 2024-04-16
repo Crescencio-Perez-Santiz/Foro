@@ -11,10 +11,13 @@ export default function AddBlog() {
   const path = "/";
   const blogCreate = useSelector((state) => state.blogCreate);
   const { loading, error } = blogCreate;
+  const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [sources, setSources] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createBlogAction(body));
+    dispatch(createBlogAction({ body, title, sources }));
     dispatch(listBlogs());
     navigate(path);
   };
@@ -42,12 +45,29 @@ export default function AddBlog() {
 
                     <div>
                       <label
+                        htmlFor="title"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Titulo
+                      </label>
+                      <div className="my-1">
+                        <input
+                          type="text"
+                          id="title"
+                          value={title}
+                          onChange={(e) => setTitle(e.target.value)}
+                          className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                          placeholder="Titulo"
+                          maxLength="105"
+                        />
+                      </div>
+                      <label
                         htmlFor="about"
                         className="block text-sm font-medium text-gray-700"
                       >
                         Acerca de
                       </label>
-                      <div className="mt-1">
+                      <div className="my-1">
                         <textarea
                           value={body}
                           onChange={(e) => setBody(e.target.value)}
@@ -56,6 +76,22 @@ export default function AddBlog() {
                           rows={3}
                           className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                           placeholder="Escribe aqui!"
+                        />
+                      </div>
+                      <label
+                        htmlFor="sources"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Fuentes
+                      </label>
+                      <div className="my-1">
+                        <input
+                          type="text"
+                          id="sources"
+                          value={sources}
+                          onChange={(e) => setSources(e.target.value)}
+                          className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                          placeholder="Fuentes"
                         />
                       </div>
                     </div>

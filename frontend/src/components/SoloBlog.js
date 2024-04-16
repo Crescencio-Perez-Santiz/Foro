@@ -43,10 +43,10 @@ export default function SoloBlog() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-6">
           <div>
             <div className="py-10 bg-gray-200">
-              <div className="py-8" key={blog.id}>
-                <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
+              <div className="py-4 mx-9" key={blog.id}>
+                <div className=" mx-auto bg-white shadow-lg rounded-md overflow-hidden w-full">
                   <div className="md:flex">
-                    <div className="w-full">
+                    <div className="w-full mx-4">
                       <div className="flex justify-between items-center m-8">
                         <div className="flex flex-row items-center">
                           {users &&
@@ -78,11 +78,25 @@ export default function SoloBlog() {
                             ))}
                         </div>
                       </div>
-
-                      <div className="p-4 flex justify-between items-center">
+                      <div className="text-left font-bold text-2xl px-10">
+                        <span>{blog.title}</span>
+                      </div>
+                      <div className="p-4 flex justify-between items-center px-10">
                         <p>{blog.body}</p>
                       </div>
-
+                      <div className="bg-white shadow rounded-lg p-6 mx-2">
+                        <ul className="list-none">
+                          <li className="mb-2 pl-2 text-sm font-semibold tracking-wide text-blue-600">
+                            <a
+                              href={blog.sources}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {blog.sources}
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                       <div className="p-4 flex justify-between items-center">
                         <div className="flex flex-row items-center ">
                           <p className="mb-2 pl-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">

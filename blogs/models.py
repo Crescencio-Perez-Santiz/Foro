@@ -5,8 +5,10 @@ from users.models import User
 # --------------------------------------MODELS------------------------------
 # Creamos la clase de blog que hereda de models.Model
 class Blog(models.Model):
+    title = models.CharField(max_length=100, null=True)  # Nuevo campo para el título del blog    
     # Definimos el campo del cuerpo del blog
     body = models.CharField(max_length=100)
+    sources = models.CharField(max_length=200, null=True)  # Nuevo campo para las fuentes
 
     # Definimos el campo de user que es una clave foránea del modelo User
     # on_delete nos permite definir que pasa con los blogs de un usuario si se elimina el usuario

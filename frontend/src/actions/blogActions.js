@@ -171,7 +171,7 @@ export const blogActionDetails = (id) => async (dispatch, getState) => {
   }
 };
 
-export const createBlogAction = (body) => async (dispatch, getState) => {
+export const createBlogAction = (blog) => async (dispatch, getState) => {
   try {
     dispatch({
       type: BLOG_CREATE_REQUEST,
@@ -190,7 +190,7 @@ export const createBlogAction = (body) => async (dispatch, getState) => {
 
     const { data } = await axios.post(
       `http://127.0.0.1:8000/blogs/post/`,
-      { body: body },
+      blog,
       config
     );
 

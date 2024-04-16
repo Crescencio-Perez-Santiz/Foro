@@ -89,9 +89,9 @@ export default function MiPerfil() {
       {blogs.map((blog) => (
         <React.Fragment key={blog.id}>
           {userInfo.user_name === blog.user && (
-            <div className="py-20 bg-gray-200">
+            <div className="py-10 bg-gray-200">
               <div className=" px-10">
-                <div className="max-w-md mx-auto bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
+                <div className="mx-auto bg-white shadow-lg rounded-md overflow-hidden w-full">
                   <div className="md:flex">
                     <div className="w-full">
                       <div
@@ -109,9 +109,24 @@ export default function MiPerfil() {
                           </div>
                         </div>
                       </div>
-                      <div></div>
-                      <div className="p-4 flex justify-between items-center">
+                      <div className="text-left font-bold text-2xl px-10">
+                        <span>{blog.title}</span>
+                      </div>
+                      <div className="p-4 flex justify-between items-center px-10">
                         <p>{blog.body}</p>
+                      </div>
+                      <div className="bg-white shadow rounded-lg p-6 mx-2">
+                        <ul className="list-none">
+                          <li className="mb-2 pl-2 text-sm font-semibold tracking-wide text-blue-600">
+                            <a
+                              href={blog.sources}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {blog.sources}
+                            </a>
+                          </li>
+                        </ul>
                       </div>
                       <div className="p-4 flex justify-between items-center">
                         <div className="flex flex-row items-center">

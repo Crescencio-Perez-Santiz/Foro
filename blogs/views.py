@@ -61,7 +61,9 @@ def postBlog(request):
         # Obtenemos el usuario que está creando el blog
         user=request.user,
         # Obtenemos el título del blog
+        title = data["title"],
         body=data["body"],
+        sources=data["sources"]
     )
 
     # Creamos el serializer de Blog y le pasamos el blog
