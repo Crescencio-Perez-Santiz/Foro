@@ -4,7 +4,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import { AiFillHome, AiFillPlusSquare } from "react-icons/ai";
 import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
-import u from "../media/cpu.png";
+import u from "../media/Logo.png";
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import ModalSubscriber from "./ModalSubscriber";
