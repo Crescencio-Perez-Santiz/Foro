@@ -7,7 +7,7 @@ export default function Landing() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
               <span className="block xl:inline">Bienvenido al</span>{" "}
               <span className="block text-indigo-600 xl:inline">
-                foro Cience
+                foro SCience
               </span>
             </h1>
             <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
