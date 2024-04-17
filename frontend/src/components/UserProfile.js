@@ -91,7 +91,7 @@ export default function UserProfile() {
                           >
                             <div className="flex flex-row items-center">
                               <img
-                                src={`http://127.0.0.1:8000${user.image}`}
+                                src={`http://52.4.187.24${user.image}`}
                                 className="rounded-full"
                                 width="40"
                               />

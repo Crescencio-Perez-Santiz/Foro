@@ -38,7 +38,7 @@ export const updateBlogAction = (blog) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `http://127.0.0.1:8000/blogs/put/${blog.id}/`,
+      `http://52.4.187.24/blogs/put/${blog.id}/`,
       blog,
       config
     );
@@ -81,7 +81,7 @@ export const deleteBlogAction = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.delete(
-      `http://127.0.0.1:8000/blogs/delete/${id}`,
+      `http://52.4.187.24/blogs/delete/${id}`,
       config
     );
 
@@ -116,7 +116,7 @@ export const createBlogComment = (id, text) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.post(
-      `http://127.0.0.1:8000/blogs/comment/${id}/`,
+      `http://52.4.187.24/blogs/comment/${id}/`,
       text,
       config
     );
@@ -152,7 +152,7 @@ export const blogActionDetails = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://127.0.0.1:8000/blogs/get/${id}/`,
+      `http://52.4.187.24/blogs/get/${id}/`,
       config
     );
 
@@ -189,7 +189,7 @@ export const createBlogAction = (blog) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      `http://127.0.0.1:8000/blogs/post/`,
+      `http://52.4.187.24/blogs/post/`,
       blog,
       config
     );
@@ -224,10 +224,7 @@ export const listBlogs = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `http://127.0.0.1:8000/blogs/get/`,
-      config
-    );
+    const { data } = await axios.get(`http://52.4.187.24/blogs/get/`, config);
 
     dispatch({
       type: BLOG_LIST_SUCCESS,

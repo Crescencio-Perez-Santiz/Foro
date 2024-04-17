@@ -83,7 +83,7 @@ export default function Header() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-10 w-10 rounded-full"
-                        src={`http://127.0.0.1:8000${userInfo.image}`}
+                        src={`http://52.4.187.24${userInfo.image}`}
                         alt=""
                       />
                     </Menu.Button>
@@ -201,7 +201,7 @@ export default function Header() {
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-10 w-10 rounded-full"
-                            src={`http://127.0.0.1:8000${userInfo.image}`}
+                            src={`http://52.4.187.24${userInfo.image}`}
                             alt=""
                           />
                         </Menu.Button>

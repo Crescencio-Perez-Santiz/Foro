@@ -71,7 +71,7 @@ export default function Feed() {
                                 {user.user_name === blog.user && (
                                   <div className="flex flex-row items-center ml-2">
                                     <img
-                                      src={`http://127.0.0.1:8000${user.image}`}
+                                      src={`http://52.4.187.24${user.image}`}
                                       className="rounded-full"
                                       width="40"
                                     />

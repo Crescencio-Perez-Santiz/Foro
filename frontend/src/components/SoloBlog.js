@@ -149,7 +149,7 @@ export default function SoloBlog() {
                             <div>
                               <img
                                 className="object-cover w-24 h-24 rounded-full shadow"
-                                src={`http://127.0.0.1:8000${u.image}`}
+                                src={`http://52.4.187.24${u.image}`}
                                 alt="Person"
                               />
                               <div className="flex flex-col justify-center mt-2">

@@ -42,7 +42,7 @@ export const editUser = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      "http://127.0.0.1:8000/users/put/",
+      "http://52.4.187.24/users/put/",
       user,
       config
     );
@@ -84,10 +84,7 @@ export const getSoloUserValue = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `http://127.0.0.1:8000/users/${id}/`,
-      config
-    );
+    const { data } = await axios.get(`http://52.4.187.24/users/${id}/`, config);
 
     dispatch({
       type: USER_SOLO_SUCCESS,
@@ -120,7 +117,7 @@ export const getSoloUser = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://127.0.0.1:8000/users/soloUser/${id}/`,
+      `http://52.4.187.24/users/soloUser/${id}/`,
       config
     );
 
@@ -157,7 +154,7 @@ export const getListUsers = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://127.0.0.1:8000/users/getUsers/`,
+      `http://52.4.187.24/users/getUsers/`,
       config
     );
 
@@ -192,7 +189,7 @@ export const register = (user_name, email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://127.0.0.1:8000/users/register/",
+      "http://52.4.187.24/users/register/",
       { user_name: user_name, email: email, password: password },
       config
     );
@@ -230,7 +227,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://127.0.0.1:8000/users/login/",
+      "http://52.4.187.24/users/login/",
       { email: email, password: password },
       config
     );
@@ -238,7 +235,7 @@ export const login = (email, password) => async (dispatch) => {
 
     // Después de que el usuario inicia sesión, hacemos una nueva solicitud para obtener los datos actualizados del usuario
     const { data: updatedData } = await axios.get(
-      `http://127.0.0.1:8000/users/profile/`,
+      `http://52.4.187.24/users/profile/`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -281,14 +278,14 @@ export const subscribeAction = (cardDetails) => async (dispatch, getState) => {
     };
 
     await axios.post(
-      `http://127.0.0.1:8000/users/subscriber/`,
+      `http://52.4.187.24/users/subscriber/`,
       cardDetails,
       config
     );
 
     // Después de que el usuario se suscribe, hacemos una nueva solicitud para obtener los datos actualizados del usuario
     const { data } = await axios.get(
-      `http://127.0.0.1:8000/users/profile/`,
+      `http://52.4.187.24/users/profile/`,
       config
     );
     console.log("actuaizado", data);
@@ -322,7 +319,7 @@ export const getUserProfile = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://127.0.0.1:8000/users/profile/`,
+      `http://52.4.187.24/users/profile/`,
       config
     );
 
